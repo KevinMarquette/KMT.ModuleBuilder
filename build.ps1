@@ -5,7 +5,6 @@ param($Task = 'Default')
 $Script:Modules = @(
     'BuildHelpers',
     'InvokeBuild',
-    'LDModuleBuilder',
     'Pester',
     'platyPS',
     'PSScriptAnalyzer',
@@ -19,7 +18,7 @@ $Script:ModuleInstallScope = 'CurrentUser'
 
 Get-PackageProvider -Name 'NuGet' -ForceBootstrap | Out-Null
 
-Update-LDModule -Name $Script:Modules -Scope $Script:ModuleInstallScope
+Install-Module -Name $Script:Modules -Scope $Script:ModuleInstallScope -AllowClobber -Force -SkipPublisherCheck
 
 Set-BuildEnvironment
 Get-ChildItem Env:BH*
