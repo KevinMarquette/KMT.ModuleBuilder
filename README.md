@@ -1,2 +1,2 @@
 # KMT.ModuleBuilder
-Keving Marquette Tools: Powershell module for building modules
+Kevin Marquette Tools: Powershell module for building modules
