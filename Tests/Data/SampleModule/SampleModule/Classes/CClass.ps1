@@ -1,0 +1,3 @@
+Class CClass {
+    [void] TestFuncitonC(){}
+}
