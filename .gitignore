@@ -1,4 +1,5 @@
-/output/
+/Output/
+/Tests/Data/SampleModule/Output
 /debug*.ps1
 /temp*.ps1
 
