@@ -30,10 +30,12 @@ Describe 'Baseline Functionality' -tag baseline {
     It 'Validates the <name> contents' -TestCases $validateContents {
         param($fileName)
         $referencePath = Join-Path $referenceFolder $fileName
-        $referenceData = Get-Content -Path $referencePath | Where {$_ -notmatch '^#'}
+        $referenceData = Get-Content -Path $referencePath |
+            Where {$_ -notmatch '^#'}
 
         $destinationPath = Join-Path $destinationFolder $fileName
-        $destinationData = Get-Content -Path $destinationPath | Where {$_ -notmatch '^#'}
+        $destinationData = Get-Content -Path $destinationPath |
+            Where {$_ -notmatch '^#'}
 
         $destinationData | Should -BeExactly $referenceData
     }
