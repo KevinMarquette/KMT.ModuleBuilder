@@ -1,10 +1,13 @@
 taskx Compile @{
-    If = (Get-ChildItem -Path $BuildRoot -Include *.csproj -Recurse)
+    If = (Get-ChildItem -Path (Get-KTMBuildVariable).BuildRoot -Include *.csproj -Recurse)
     Inputs = {
-        Get-ChildItem $BuildRoot -Recurse -File -Include *.cs
+        Get-ChildItem (Get-KTMBuildVariable).BuildRoot -Recurse -File -Include *.cs
     }
-    Outputs = "$Destination\bin\$ModuleName.dll"
+    Outputs = "{0}\bin\{1}.dll" -f (Get-KTMBuildVariable).Destination,(Get-KTMBuildVariable).ModuleName
     Jobs = {
+        $buildRoot = (Get-KTMBuildVariable).BuildRoot
+        $destination = (Get-KTMBuildVariable).Destination
+
         # This build command requires .Net Core
         "Building Module"
         $csproj = Get-ChildItem -Path $BuildRoot -Include *.csproj -Recurse

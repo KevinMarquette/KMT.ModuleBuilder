@@ -1,5 +1,9 @@
 
 task GenerateHelp {
+    $docsPath = (Get-KTMBuildVariable).DocsPath
+    $destination = (Get-KTMBuildVariable).Destination
+    $moduleName = (Get-KTMBuildVariable).ModuleName
+
     if (-not(Get-ChildItem -Path $DocsPath -Filter '*.md' -Recurse -ErrorAction 'Ignore'))
     {
         "No Markdown help files to process. Skipping help file generation..."

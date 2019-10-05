@@ -1,4 +1,6 @@
 task PublishModule {
+    $Destination = (Get-KTMBuildVariable).Description
+    $PSRepository = (Get-KTMBuildVariable).PSRepository
 
     if ( $ENV:BHBuildSystem -ne 'Unknown' -and
         $ENV:BHBranchName -eq "master" -and

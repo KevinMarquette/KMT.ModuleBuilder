@@ -1,4 +1,6 @@
 task Pester {
+    $testFile = (Get-KTMBuildVariable).TestFile
+
     $requiredPercent = $Script:CodeCoveragePercent
 
     $params = @{

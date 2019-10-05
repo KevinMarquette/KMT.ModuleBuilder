@@ -1,4 +1,5 @@
 task Clean {
+    $Output = (Get-KTMBuildVariable).Output
     if (Test-Path $Output)
     {
         "Cleaning Output files in [$Output]..."

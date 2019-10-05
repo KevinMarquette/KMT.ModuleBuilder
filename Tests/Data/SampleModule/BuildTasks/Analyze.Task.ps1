@@ -1,4 +1,6 @@
 task Analyze {
+    $ManifestPath = (Get-KTMBuildVariable).ManifestPath
+
     $params = @{
         IncludeDefaultRules = $true
         Path                = $ManifestPath
@@ -6,7 +8,7 @@ task Analyze {
         Severity            = 'Warning'
     }
 
-    "Analyzing $ManifestPath..."
+    "Analyzing [$ManifestPath]..."
     $results = Invoke-ScriptAnalyzer @params
     if ($results)
     {

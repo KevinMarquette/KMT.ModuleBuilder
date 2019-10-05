@@ -1,5 +1,9 @@
 
 task Install Uninstall, {
+    $manifestPath = (Get-KTMBuildVariable).ManifestPath
+    $moduleName = (Get-KTMBuildVariable).ModuleName
+    $destination = (Get-KTMBuildVariable).Destination
+
     $version = [version] (Get-Metadata -Path $manifestPath -PropertyName 'ModuleVersion')
 
     $path = $env:PSModulePath.Split(';').Where({

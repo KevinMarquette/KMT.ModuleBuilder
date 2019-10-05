@@ -1,4 +1,5 @@
 task PublishVersion {
+    $manifestPath = (Get-KTMBuildVariable).ManifestPath
     [version] $sourceVersion = (Get-Metadata -Path $manifestPath -PropertyName 'ModuleVersion')
     "##vso[build.updatebuildnumber]$sourceVersion"
 

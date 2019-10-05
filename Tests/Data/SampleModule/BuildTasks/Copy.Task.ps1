@@ -1,5 +1,11 @@
 
 task Copy {
+    $source = (Get-KTMBuildVariable).Source
+    $destination = (Get-KTMBuildVariable).Destination
+    $moduleName = (Get-KTMBuildVariable).ModuleName
+    $buildRoot = (Get-KTMBuildVariable).BuildRoot
+    $folders = (Get-KTMBuildVariable).Folders
+
     "Creating Directory [$Destination]..."
     $null = New-Item -ItemType 'Directory' -Path $Destination -ErrorAction 'Ignore'
 

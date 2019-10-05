@@ -1,8 +1,12 @@
 
 taskx BuildManifest @{
-    Inputs  = (Get-ChildItem -Path $Source -Recurse -File)
-    Outputs = $ManifestPath
+    Inputs  = (Get-ChildItem -Path (Get-KTMBuildVariable).Source -Recurse -File)
+    Outputs = (Get-KTMBuildVariable).ManifestPath
     Jobs    = {
+        $ManifestPath = (Get-KTMBuildVariable).ManifestPath
+        $ModuleName = (Get-KTMBuildVariable).ModuleName
+        $Source = (Get-KTMBuildVariable).Source
+
         "Updating [$ManifestPath]..."
         Copy-Item -Path "$Source\$ModuleName.psd1" -Destination $ManifestPath
 

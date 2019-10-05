@@ -1,5 +1,7 @@
 
 task Uninstall {
+    $moduleName = (Get-KTMBuildVariable).ModuleName
+
     'Unloading Modules...'
     Get-Module -Name $ModuleName -ErrorAction 'Ignore' | Remove-Module -Force
 

@@ -1,5 +1,9 @@
 
 task GenerateMarkdown {
+    $manifestPath = (Get-KTMBuildVariable).ManifestPath
+    $docsPath = (Get-KTMBuildVariable).DocsPath
+    $moduleName = (Get-KTMBuildVariable).ModuleName
+
     $module = Import-Module -FullyQualifiedName $ManifestPath -Force -PassThru
 
     try
