@@ -11,7 +11,6 @@ function Initialize-KTMModuleProject
 
     #>
     [cmdletbinding()]
-    [OutputType('System.Collections.Hashtable')]
     param(
         [string]
         # Root folder of the project
@@ -28,7 +27,7 @@ function Initialize-KTMModuleProject
             Write-Verbose "Initializing build variables"
             $output = Join-Path -Path $BuildRoot -ChildPath 'Output'
             $destination = Join-Path -Path $Output -ChildPath $ModuleName
-            @{
+            $script:buildInit = @{
                 ModuleName = $ModuleName
                 BuildRoot = $BuildRoot
                 DocsPath = Join-Path -Path $BuildRoot -ChildPath 'Docs'

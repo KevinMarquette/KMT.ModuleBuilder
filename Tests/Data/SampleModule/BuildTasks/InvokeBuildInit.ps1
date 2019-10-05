@@ -1,7 +1,8 @@
 Write-Verbose "Initializing build variables" -Verbose
 Write-Verbose "  Existing BuildRoot [$BuildRoot]" -Verbose
 
-$init = Initialize-KTMModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
+Initialize-KTMModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
+$init = Get-KTMBuildVariable
 
 $Script:DocsPath = $init.DocsPath
 Write-Verbose "  DocsPath [$DocsPath]" -Verbose
