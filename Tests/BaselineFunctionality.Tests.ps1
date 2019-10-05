@@ -1,4 +1,4 @@
-Describe 'Baseline Functionality' -tag baseline {
+Describe 'Baseline Functionality' -tag baseline,build {
 
     BeforeAll {
         $referenceFolder = "$PSScriptRoot/Data/ReferenceOutput/SampleModule"
