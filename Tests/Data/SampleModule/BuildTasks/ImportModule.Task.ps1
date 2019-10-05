@@ -29,5 +29,5 @@ function ImportModule
 }
 
 task ImportModule {
-    ImportModule -Path (Get-KTMBuildVariable).ManifestPath
+    ImportModule -Path (Get-KmtBuildVariable).ManifestPath
 }

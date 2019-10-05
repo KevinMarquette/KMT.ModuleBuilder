@@ -1,5 +1,6 @@
 task Analyze {
-    $ManifestPath = (Get-KTMBuildVariable).ManifestPath
+    $ManifestPath = (Get-KmtBuildVariable).ManifestPath
+    $BuildRoot = (Get-KmtBuildVariable).BuildRoot
 
     $params = @{
         IncludeDefaultRules = $true

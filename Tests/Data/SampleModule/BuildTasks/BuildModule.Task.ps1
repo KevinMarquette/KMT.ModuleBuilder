@@ -122,13 +122,13 @@ function Move-Statement
 }
 
 taskx BuildModule @{
-    Inputs  = (Get-ChildItem -Path (Get-KTMBuildVariable).Source -Recurse -Filter *.ps1)
-    Outputs = (Get-KTMBuildVariable).ModulePath
+    Inputs  = (Get-ChildItem -Path (Get-KmtBuildVariable).Source -Recurse -Filter *.ps1)
+    Outputs = (Get-KmtBuildVariable).ModulePath
     Jobs    = {
-        $source = (Get-KTMBuildVariable).Source
-        $buildRoot = (Get-KTMBuildVariable).BuildRoot
-        $modulePath = (Get-KTMBuildVariable).ModulePath
-        $folders = (Get-KTMBuildVariable).Folders
+        $source = (Get-KmtBuildVariable).Source
+        $buildRoot = (Get-KmtBuildVariable).BuildRoot
+        $modulePath = (Get-KmtBuildVariable).ModulePath
+        $folders = (Get-KmtBuildVariable).Folders
 
         $sb = [Text.StringBuilder]::new()
         $null = $sb.AppendLine('$Script:PSModuleRoot = $PSScriptRoot')

@@ -1,8 +1,8 @@
 Write-Verbose "Initializing build variables" -Verbose
 Write-Verbose "  Existing BuildRoot [$BuildRoot]" -Verbose
 
-Initialize-KTMModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
-$init = Get-KTMBuildVariable
+Initialize-KmtModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
+$init = Get-KmtBuildVariable
 foreach($key in $init.Keys)
 {
     Write-Verbose "  $key [$($init[$key])]" -Verbose

@@ -1,7 +1,7 @@
 task UpdateSource {
-    $source = (Get-KTMBuildVariable).Source
-    $manifestPath = (Get-KTMBuildVariable).ManifestPath
-    $moduleName = (Get-KTMBuildVariable).moduleName
+    $source = (Get-KmtBuildVariable).Source
+    $manifestPath = (Get-KmtBuildVariable).ManifestPath
+    $moduleName = (Get-KmtBuildVariable).moduleName
 
     Copy-Item -Path $ManifestPath -Destination "$Source\$ModuleName.psd1"
 

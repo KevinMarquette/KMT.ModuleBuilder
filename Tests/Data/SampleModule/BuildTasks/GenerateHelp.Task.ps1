@@ -1,8 +1,8 @@
 
 task GenerateHelp {
-    $docsPath = (Get-KTMBuildVariable).DocsPath
-    $destination = (Get-KTMBuildVariable).Destination
-    $moduleName = (Get-KTMBuildVariable).ModuleName
+    $docsPath = (Get-KmtBuildVariable).DocsPath
+    $destination = (Get-KmtBuildVariable).Destination
+    $moduleName = (Get-KmtBuildVariable).ModuleName
 
     if (-not(Get-ChildItem -Path $DocsPath -Filter '*.md' -Recurse -ErrorAction 'Ignore'))
     {

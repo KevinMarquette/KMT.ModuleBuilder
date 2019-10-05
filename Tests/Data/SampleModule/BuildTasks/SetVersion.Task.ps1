@@ -25,10 +25,10 @@ function GetModulePublicInterfaceMap
 }
 
 task SetVersion {
-    $manifestPath = (Get-KTMBuildVariable).ManifestPath
-    $output = (Get-KTMBuildVariable).Output
-    $moduleName = (Get-KTMBuildVariable).ModuleName
-    $buildRoot = (Get-KTMBuildVariable).BuildRoot
+    $manifestPath = (Get-KmtBuildVariable).ManifestPath
+    $output = (Get-KmtBuildVariable).Output
+    $moduleName = (Get-KmtBuildVariable).ModuleName
+    $buildRoot = (Get-KmtBuildVariable).BuildRoot
 
     $version = [version]"0.1.0"
     $publishedModule = $null

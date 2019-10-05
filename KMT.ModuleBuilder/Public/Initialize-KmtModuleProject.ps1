@@ -1,11 +1,11 @@
-function Initialize-KTMModuleProject
+function Initialize-KmtModuleProject
 {
     <#
         .Synopsis
         Initializes several project values used by other functions
 
         .Example
-        Initialize-KTMModuleProject -Path $Path
+        Initialize-KmtModuleProject -Path $Path
 
         .Notes
 

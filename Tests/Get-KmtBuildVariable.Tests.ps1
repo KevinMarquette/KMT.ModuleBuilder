@@ -1,8 +1,8 @@
-Describe 'Function Get-KTMBuildVariable' -tag build {
+Describe 'Function Get-KmtBuildVariable' -tag build {
 
     BeforeAll {
-        Initialize-KTMModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
-        $data = Get-KTMBuildVariable
+        Initialize-KmtModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
+        $data = Get-KmtBuildVariable
     }
 
     $testCases = @(

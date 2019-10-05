@@ -1,10 +1,10 @@
-function Get-KTMBuildVariable
+function Get-KmtBuildVariable
 {
     <#
         .Synopsis
         Retreives initialization variables
         .Example
-        $buildVar = Get-KTMBuildVariable
+        $buildVar = Get-KmtBuildVariable
 
         .Notes
 

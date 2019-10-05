@@ -1,8 +1,8 @@
 
 task Install Uninstall, {
-    $manifestPath = (Get-KTMBuildVariable).ManifestPath
-    $moduleName = (Get-KTMBuildVariable).ModuleName
-    $destination = (Get-KTMBuildVariable).Destination
+    $manifestPath = (Get-KmtBuildVariable).ManifestPath
+    $moduleName = (Get-KmtBuildVariable).ModuleName
+    $destination = (Get-KmtBuildVariable).Destination
 
     $version = [version] (Get-Metadata -Path $manifestPath -PropertyName 'ModuleVersion')
 
