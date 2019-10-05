@@ -1,31 +1,33 @@
 Write-Verbose "Initializing build variables" -Verbose
 Write-Verbose "  Existing BuildRoot [$BuildRoot]" -Verbose
 
-$Script:DocsPath = Join-Path -Path $BuildRoot -ChildPath 'Docs'
+$init = Initialize-KTMModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
+
+$Script:DocsPath = $init.DocsPath
 Write-Verbose "  DocsPath [$DocsPath]" -Verbose
 
-$Script:Output = Join-Path -Path $BuildRoot -ChildPath 'Output'
+$Script:Output = $init.Output
 Write-Verbose "  Output [$Output]" -Verbose
 
-$Script:Source = Join-Path -Path $BuildRoot -ChildPath $ModuleName
+$Script:Source = $init.Source
 Write-Verbose "  Source [$Source]" -Verbose
 
-$Script:Destination = Join-Path -Path $Output -ChildPath $ModuleName
+$Script:Destination = $init.Destination
 Write-Verbose "  Destination [$Destination]" -Verbose
 
-$Script:ManifestPath = Join-Path -Path $Destination -ChildPath "$ModuleName.psd1"
+$Script:ManifestPath = $init.ManifestPath
 Write-Verbose "  ManifestPath [$ManifestPath]" -Verbose
 
-$Script:ModulePath = Join-Path -Path $Destination -ChildPath "$ModuleName.psm1"
+$Script:ModulePath = $init.ModulePath
 Write-Verbose "  ModulePath [$ModulePath]" -Verbose
 
-$Script:Folders = 'Classes', 'Includes', 'Internal', 'Private', 'Public', 'Resources'
+$Script:Folders = $init.Folders
 Write-Verbose "  Folders [$Folders]" -Verbose
 
-$Script:TestFile = "$BuildRoot\Output\TestResults_PS$PSVersion`_$TimeStamp.xml"
+$Script:TestFile = $init.TestFile
 Write-Verbose "  TestFile [$TestFile]" -Verbose
 
-$Script:PSRepository = 'PSGallery'
+$Script:PSRepository = $init.PSRepository
 Write-Verbose "  PSRepository [$TestFile]" -Verbose
 
 function taskx($Name, $Parameters) { task $Name @Parameters -Source $MyInvocation }
