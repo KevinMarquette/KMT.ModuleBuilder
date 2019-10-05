@@ -10,6 +10,7 @@ Describe 'Baseline Functionality' -tag baseline {
 
     $createdItems = @(
         @{name="Output folder"; path="TestDrive:/SampleModule/Output"}
+        @{name="Download version file"; path="TestDrive:/SampleModule/Output/downloads/versionfile"}
         @{name="PSM1 file"; path="$destinationFolder/SampleModule.psm1"}
         @{name="PSD1 file"; path="$destinationFolder/SampleModule.psd1"}
         @{name="LICENSE file"; path="$destinationFolder/LICENSE"}
