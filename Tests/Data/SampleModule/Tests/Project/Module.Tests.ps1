@@ -32,19 +32,7 @@ Describe "All commands pass PSScriptAnalyzer rules" -Tag 'Build' {
     }
 }
 
-Describe "Public commands have Pester tests" -Tag 'Build' {
-    $commands = Get-Command -Module $ModuleName
-
-    foreach ($command in $commands.Name)
-    {
-        $file = Get-ChildItem -Path "$ModuleRoot\Tests" -Include "$command.Tests.ps1" -Recurse
-        It "Should have a Pester test for [$command]" {
-            $file.FullName | Should Not BeNullOrEmpty
-        }
-    }
-}
-
-Describe "Public commands have Pester tests v2" -Tag 'Build' {
+Describe "Public commands are used in tests" -Tag 'Build' {
     BeforeAll {
         $commandNames = Get-Command -Module $ModuleName | Select-Object -ExpandProperty Name
         $commandResults = @{}
