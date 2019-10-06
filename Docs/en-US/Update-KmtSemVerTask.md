@@ -12,7 +12,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Update-KmtSemVerTask [[-SourcePath] <Object>] [[-ManifestPath] <Object>] [[-ModuleName] <Object>]
+Update-KmtSemVerTask [[-SourcePath] <Object>] [-ManifestPath] <Object> [[-ModuleName] <Object>]
  [[-Repository] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -36,7 +36,7 @@ Type: Object
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 2
 Default value: None
 Accept pipeline input: False
