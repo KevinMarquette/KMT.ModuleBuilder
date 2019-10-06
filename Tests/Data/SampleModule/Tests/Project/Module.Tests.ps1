@@ -46,6 +46,7 @@ Describe "Public commands are used in tests" -Tag 'Build' {
             $content = Get-Content -Path $file.FullName -Raw
             foreach ($command in $commandNames)
             {
+                #ToDo: Should use Select-Ast instead to find functions
                 $pattern = '\b{0}\b' -f $command
                 if ($content -match $pattern)
                 {
