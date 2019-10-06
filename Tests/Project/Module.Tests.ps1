@@ -32,14 +32,40 @@ Describe "All commands pass PSScriptAnalyzer rules" -Tag 'Build' {
     }
 }
 
-Describe "Public commands have Pester tests" -Tag 'Build' {
-    $commands = Get-Command -Module $ModuleName
+Describe "Public commands are tested" -Tag 'Build' {
+    BeforeAll {
+        $commandNames = Get-Command -Module $ModuleName | Select-Object -ExpandProperty Name
+        $commandResults = @{}
+        $commandNames | ForEach-Object {$commandResults[$_] = 0}
 
-    foreach ($command in $commands.Name)
-    {
-        $file = Get-ChildItem -Path "$ModuleRoot\Tests" -Include "$command.Tests.ps1" -Recurse
-        It "Should have a Pester test for [$command]" {
-            $file.FullName | Should Not BeNullOrEmpty
+        $testFiles = Get-ChildItem -Path "$ModuleRoot\Tests" -Include "*.Tests.ps1" -Recurse
+
+        # search every test file for command calls
+        foreach ($file in $testFiles)
+        {
+            $content = Get-Content -Path $file.FullName -Raw
+            foreach ($command in $commandNames)
+            {
+                $pattern = '\b{0}\b' -f $command
+                if ($content -match $pattern)
+                {
+                    $commandResults[$command] += 1
+                }
+            }
         }
+
+        # create testcases from results of command search
+        $testCases = foreach($key in $commandResults.Keys)
+        {
+            @{
+                Name = $key
+                Count = $commandResults[$key]
+            }
+        }
+    }
+
+    It "[<Name>] has a test" -TestCases $testCases {
+        param($Count)
+        $Count | Should -BeGreaterThan 0
     }
 }

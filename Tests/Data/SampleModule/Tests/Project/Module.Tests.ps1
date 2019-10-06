@@ -43,3 +43,41 @@ Describe "Public commands have Pester tests" -Tag 'Build' {
         }
     }
 }
+
+Describe "Public commands have Pester tests v2" -Tag 'Build' {
+    BeforeAll {
+        $commandNames = Get-Command -Module $ModuleName | Select-Object -ExpandProperty Name
+        $commandResults = @{}
+        $commandNames | ForEach-Object {$commandResults[$_] = 0}
+
+        $testFiles = Get-ChildItem -Path "$ModuleRoot\Tests" -Include "*.Tests.ps1" -Recurse
+
+        # search every test file for command calls
+        foreach ($file in $testFiles)
+        {
+            $content = Get-Content -Path $file.FullName -Raw
+            foreach ($command in $commandNames)
+            {
+                $pattern = '\b{0}\b' -f $command
+                if ($content -match $pattern)
+                {
+                    $commandResults[$command] += 1
+                }
+            }
+        }
+
+        # create testcases from results of command search
+        $testCases = foreach($key in $commandResults.Keys)
+        {
+            @{
+                Name = $key
+                Count = $commandResults[$key]
+            }
+        }
+    }
+
+    It "[<Name>] has a test" -TestCases $testCases {
+        param($Count)
+        $Count | Should -BeGreaterThan 0
+    }
+}
