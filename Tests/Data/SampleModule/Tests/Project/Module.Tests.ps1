@@ -32,7 +32,7 @@ Describe "All commands pass PSScriptAnalyzer rules" -Tag 'Build' {
     }
 }
 
-Describe "Public commands are used in tests" -Tag 'Build' {
+Describe "Public commands are tested" -Tag 'Build' {
     BeforeAll {
         $commandNames = Get-Command -Module $ModuleName | Select-Object -ExpandProperty Name
         $commandResults = @{}
@@ -46,7 +46,6 @@ Describe "Public commands are used in tests" -Tag 'Build' {
             $content = Get-Content -Path $file.FullName -Raw
             foreach ($command in $commandNames)
             {
-                # TODO: Use Select-Ast instead to find functions
                 $pattern = '\b{0}\b' -f $command
                 if ($content -match $pattern)
                 {
@@ -63,10 +62,11 @@ Describe "Public commands are used in tests" -Tag 'Build' {
                 Count = $commandResults[$key]
             }
         }
+        $testCases = $null -ne $testCases ? $testCases : $null
     }
 
     It "[<Name>] has a test" -TestCases $testCases {
-        param($Count)
+        param($Name, $Count)
         $Count | Should -BeGreaterThan 0
     }
 }
