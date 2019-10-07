@@ -35,6 +35,7 @@ function Import-KmtModule
             Force = $true
             PassThru = $PassThru
             Scope = 'Global'
+            Verbose = $false
         }
         Import-Module @splat
     }

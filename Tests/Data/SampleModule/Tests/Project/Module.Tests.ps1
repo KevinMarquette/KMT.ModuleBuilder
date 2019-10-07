@@ -65,7 +65,7 @@ Describe "Public commands are tested" -Tag 'Build' {
         $testCases = $null -ne $testCases ? $testCases : $null
     }
 
-    It "[<Name>] has a test" -TestCases $testCases {
+    It "[<Name>] has a test" -TestCases $testCases -skip:($null -eq $testCases) {
         param($Name, $Count)
         $Count | Should -BeGreaterThan 0
     }
