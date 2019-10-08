@@ -1,4 +1,4 @@
-Describe 'Function Update-KmtSemVerTask' -tag build {
+Describe 'Function Invoke-KmtSemVerTask' -tag build {
     $testCases = @(
         @{
             name='SimpleModule';
@@ -23,7 +23,7 @@ Describe 'Function Update-KmtSemVerTask' -tag build {
             ModuleName = 'SampleModule'
             Repository = 'PSGallery'
         }
-        Update-KmtSemVerTask @task
+        Invoke-KmtSemVerTask @task
         $task.ManifestPath | Should -FileContentMatch ($version)
     }
 }

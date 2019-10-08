@@ -13,7 +13,6 @@ task Analyze {
     Invoke-KmtAnalyzeTask
 }
 
-
 taskx BuildManifest @{
     Inputs  = (Get-ChildItem -Path (Get-KmtBuildVariable).Source -Recurse -File)
     Outputs = (Get-KmtBuildVariable).ManifestPath
@@ -26,13 +25,7 @@ taskx BuildModule @{
     Inputs  = (Get-ChildItem -Path (Get-KmtBuildVariable).Source -Recurse -Filter *.ps1)
     Outputs = (Get-KmtBuildVariable).ModulePath
     Jobs    = {
-        $source = (Get-KmtBuildVariable).Source
-        $modulePath = (Get-KmtBuildVariable).ModulePath
-        $task = @{
-            SourcePath = $source
-            OutputFileName = $modulePath
-        }
-        Build-KmtModuleTask @task
+        Invoke-KmtBuildModuleTask
     }
 }
 
@@ -50,32 +43,25 @@ taskx Compile @{
     }
 }
 
-
 task Copy {
     Invoke-KmtCopyTask
 }
 
-
 task GenerateHelp {
     Invoke-KmtGenerateHelpTask
 }
-
 
 task GenerateMarkdown {
     Invoke-KmtGenerateMarkdown
 }
 
 task ImportDevModule {
-    $source = (Get-KmtBuildVariable).Source
-    $moduleName = (Get-KmtBuildVariable).ModuleName
-    Import-KmtModule -Path "$Source\$ModuleName.psd1" -Force
+    Invoke-KmtImportDevModuleTask
 }
 
 task ImportModule {
-    $path = (Get-KmtBuildVariable).ManifestPath
-    Import-KmtModule -Path $path -Force
+    Invoke-KmtImportBuiltModuleTask
 }
-
 
 task Install Uninstall, {
     Invoke-KmtInstallModule
@@ -85,7 +71,6 @@ task Pester {
     Invoke-KmtPesterTask
 }
 
-
 task PublishModule {
     Invoke-KmtPublishModuleTask
 }
@@ -93,8 +78,6 @@ task PublishModule {
 task PublishVersion {
     Invoke-KmtPublishVersionTask
 }
-
-
 
 task SetVersion {
     Invoke-KmtSemVerTask
