@@ -1,4 +1,0 @@
-
-task Uninstall {
-    Invoke-KtmUninstallModule
-}

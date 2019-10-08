@@ -1,4 +1,0 @@
-
-task GenerateHelp {
-    Invoke-KmtGenerateHelpTask
-}

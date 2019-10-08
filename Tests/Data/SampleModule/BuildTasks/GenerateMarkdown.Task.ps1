@@ -1,4 +1,0 @@
-
-task GenerateMarkdown {
-    Invoke-KmtGenerateMarkdown
-}

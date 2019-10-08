@@ -1,4 +1,0 @@
-
-task Copy {
-    Invoke-KmtCopyTask
-}

@@ -1,3 +1,0 @@
-task UpdateSource {
-    Invoke-KmtUpdateSourceTask
-}

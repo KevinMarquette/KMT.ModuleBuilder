@@ -1,3 +1,0 @@
-task Analyze {
-    Invoke-KmtAnalyzeTask
-}

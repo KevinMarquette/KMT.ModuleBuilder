@@ -1,3 +1,0 @@
-task Clean {
-    Invoke-KmtCleanTask
-}
