@@ -20,32 +20,24 @@ foreach($key in $init.Keys)
     Write-Verbose "  $key [$($init[$key])]" -Verbose
 }
 
-function taskx($Name, $Parameters) { task $Name @Parameters -Source $MyInvocation }
 task Analyze {
     Invoke-KmtAnalyzeTask
 }
 
-taskx BuildManifest @{
-    Jobs    = {
-        Invoke-KmtBuildManifestTask
-    }
+task BuildManifest {
+    Invoke-KmtBuildManifestTask
 }
 
-taskx BuildModule @{
-
-    Jobs    = {
-        Invoke-KmtBuildModuleTask
-    }
+task BuildModule {
+    Invoke-KmtBuildModuleTask
 }
 
 task Clean {
     Invoke-KmtCleanTask
 }
 
-taskx Compile @{
-    Jobs = {
-        Invoke-KmtDotNetCompileTask
-    }
+task Compile {
+    Invoke-KmtDotNetCompileTask
 }
 
 task Copy {
