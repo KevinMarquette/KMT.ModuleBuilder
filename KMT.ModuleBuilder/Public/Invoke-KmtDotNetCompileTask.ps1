@@ -4,7 +4,7 @@ function Invoke-KmtDotNetCompileTask
         .Synopsis
         Compiles DotNet binary module
         .Example
-        Invoke-KmtCompileTask -Path $Path
+        Invoke-KmtDotNetCompileTask -Path $Path
 
         .Notes
 

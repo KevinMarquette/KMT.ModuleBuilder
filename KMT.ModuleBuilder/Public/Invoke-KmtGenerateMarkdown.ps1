@@ -22,7 +22,7 @@ function Invoke-KmtGenerateMarkdown
         $docsPath = (Get-KmtBuildVariable).DocsPath
         $moduleName = (Get-KmtBuildVariable).ModuleName
 
-        $module = Import-Module -FullyQualifiedName $ManifestPath -Force -PassThru
+        $module = Import-KmtModule -Path $ManifestPath -PassThru
 
         try
         {

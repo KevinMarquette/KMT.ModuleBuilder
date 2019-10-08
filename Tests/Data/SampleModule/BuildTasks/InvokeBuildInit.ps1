@@ -14,16 +14,13 @@ task Analyze {
 }
 
 taskx BuildManifest @{
-    Inputs  = (Get-ChildItem -Path (Get-KmtBuildVariable).Source -Recurse -File)
-    Outputs = (Get-KmtBuildVariable).ManifestPath
     Jobs    = {
         Invoke-KmtBuildManifestTask
     }
 }
 
 taskx BuildModule @{
-    Inputs  = (Get-ChildItem -Path (Get-KmtBuildVariable).Source -Recurse -Filter *.ps1)
-    Outputs = (Get-KmtBuildVariable).ModulePath
+
     Jobs    = {
         Invoke-KmtBuildModuleTask
     }
@@ -34,10 +31,6 @@ task Clean {
 }
 
 taskx Compile @{
-    Inputs = {
-        Get-ChildItem (Get-KmtBuildVariable).BuildRoot -Recurse -File -Include *.cs
-    }
-    Outputs = "{0}\bin\{1}.dll" -f (Get-KmtBuildVariable).Destination,(Get-KmtBuildVariable).ModuleName
     Jobs = {
         Invoke-KmtDotNetCompileTask
     }
