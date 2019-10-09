@@ -61,7 +61,8 @@ function Build-KmtModule
     }
     catch
     {
-        $PSCmdlet.ThrowTerminatingError( $PSItem )
+        Write-Error -ErrorRecord $PSItem -ErrorAction Stop
+        #$PSCmdlet.ThrowTerminatingError( $PSItem )
     }
 
 }

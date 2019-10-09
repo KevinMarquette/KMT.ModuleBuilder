@@ -1,3 +1,4 @@
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 param($BuildVariables)
 
 $ModuleRoot = $BuildVariables.BuildRoot
@@ -33,10 +34,9 @@ Describe "Public commands are tested"  {
                 Count = $commandResults[$key]
             }
         }
-        $testCases = $null -ne $testCases ? $testCases : $null
     }
 
-    It "[<Name>] has a test" -TestCases $testCases -skip:($null -eq $testCases) {
+    It "[<Name>] has a test" -TestCases $testCases -skip:(!$testCases) {
         param($Name, $Count)
         $Count | Should -BeGreaterThan 0
     }
