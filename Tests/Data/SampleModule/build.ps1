@@ -20,9 +20,9 @@ Get-PackageProvider -Name 'NuGet' -ForceBootstrap | Out-Null
 
 Install-Module -Name $Script:Modules -Scope $Script:ModuleInstallScope -AllowClobber -Force -SkipPublisherCheck
 
-Set-BuildEnvironment
-Get-ChildItem Env:BH*
-Get-ChildItem Env:APPVEYOR*
+#Set-BuildEnvironment
+#Get-ChildItem Env:BH*
+#Get-ChildItem Env:APPVEYOR*
 
 $Error.Clear()
 

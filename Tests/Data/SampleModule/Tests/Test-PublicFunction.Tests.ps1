@@ -1,5 +1,5 @@
-Describe 'Function Test-PublicFunction' {
+Describe 'Function Test-PublicFunction' -Tag build {
     It 'Should not throw' {
-        Test-PublicFunction
+        Test-PublicFunction -Path $PWD
     }
 }

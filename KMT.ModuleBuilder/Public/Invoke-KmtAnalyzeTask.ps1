@@ -1,3 +1,4 @@
+using namespace System.IO
 function Invoke-KmtAnalyzeTask
 {
     <#
@@ -14,28 +15,27 @@ function Invoke-KmtAnalyzeTask
 
     try
     {
-        $ManifestPath = (Get-KmtBuildVariable).ManifestPath
-        $BuildRoot = (Get-KmtBuildVariable).BuildRoot
+        $BuildVariables = Get-KmtBuildVariable
 
-        $params = @{
-            IncludeDefaultRules = $true
-            Path                = $ManifestPath
-            Settings            = "$BuildRoot\ScriptAnalyzerSettings.psd1"
-            Severity            = 'Warning'
+        $scripts = Get-ChildItem -Path (Join-Path $PSModuleRoot 'Pester') |
+            Foreach-Object {@{
+                Path       = $_.FullName
+                Parameters = @{BuildVariables = $BuildVariables}
+            }}
+
+        $pester = @{
+            Script = $scripts
+            PassThru = $true
+            Show     = 'Failed', 'Fails', 'Summary'
         }
-
-        Write-Verbose "Analyzing [$ManifestPath]..."
-        $results = Invoke-ScriptAnalyzer @params
-        if ($results)
+        $results = Invoke-Pester @pester
+        if ($results.FailedCount -gt 0)
         {
-            Write-Verbose 'One or more PSScriptAnalyzer errors/warnings were found.'
-            Write-Verbose 'Please investigate or add the required SuppressMessage attribute.'
-            $results | Format-Table -AutoSize
+            Write-Error -Message "Failed [$($results.FailedCount)] Ktm Pester tests." -ErrorAction Stop
         }
     }
     catch
     {
         $PSCmdlet.ThrowTerminatingError( $PSItem )
     }
-
 }

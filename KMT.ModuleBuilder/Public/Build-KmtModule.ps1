@@ -53,6 +53,7 @@ function Build-KmtModule
         #ImportModule
         Invoke-KmtImportBuiltModuleTask
         #Pester
+        Invoke-KmtAnalyzeTask
         Invoke-KmtPesterTask
         #UpdateSource
         Invoke-KmtUpdateSourceTask

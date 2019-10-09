@@ -1,3 +1,4 @@
+using namespace System.ComponentModel.Composition
 function Initialize-KmtModuleProject
 {
     <#
@@ -10,6 +11,7 @@ function Initialize-KmtModuleProject
         .Notes
 
     #>
+    [Export()]
     [cmdletbinding()]
     param(
         [string]
