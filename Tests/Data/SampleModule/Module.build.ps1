@@ -2,7 +2,7 @@ $Script:ModuleName = Get-ChildItem .\*\*.psm1 | Select-object -ExpandProperty Ba
 $Script:CodeCoveragePercent = 0.0 # 0 to 1
 
 
-task Default Build, Helpify, Test, UpdateSource
+task Default FullBuild #Build, Helpify, Test, UpdateSource
 task Build Copy, Compile, BuildModule, BuildManifest, SetVersion
 task Helpify GenerateMarkdown, GenerateHelp
 task Test Build, ImportModule, Pester
@@ -18,6 +18,10 @@ $init = Get-KmtBuildVariable
 foreach($key in $init.Keys)
 {
     Write-Verbose "  $key [$($init[$key])]" -Verbose
+}
+
+task FullBuild {
+    Build-KmtModule
 }
 
 task Analyze {
