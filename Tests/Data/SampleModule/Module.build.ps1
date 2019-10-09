@@ -3,12 +3,7 @@ $Script:CodeCoveragePercent = 0.0 # 0 to 1
 
 
 task Default FullBuild #Build, Helpify, Test, UpdateSource
-task Build Copy, Compile, BuildModule, BuildManifest, SetVersion
-task Helpify GenerateMarkdown, GenerateHelp
-task Test Build, ImportModule, Pester
-task Publish Build, PublishVersion, Helpify, Test, PublishModule
-task TFS Clean, Build, PublishVersion, Helpify, Test
-task DevTest ImportDevModule, Pester
+
 
 Write-Verbose "Initializing build variables" -Verbose
 Write-Verbose "  Existing BuildRoot [$BuildRoot]" -Verbose
@@ -19,10 +14,26 @@ foreach($key in $init.Keys)
 {
     Write-Verbose "  $key [$($init[$key])]" -Verbose
 }
+Build-KmtModule
+
+
+
 
 task FullBuild {
-    Build-KmtModule
 }
+
+<#
+
+
+
+task Build Copy, Compile, BuildModule, BuildManifest, SetVersion
+task Helpify GenerateMarkdown, GenerateHelp
+task Test Build, ImportModule, Pester
+task Publish Build, PublishVersion, Helpify, Test, PublishModule
+task TFS Clean, Build, PublishVersion, Helpify, Test
+task DevTest ImportDevModule, Pester
+
+
 
 task Analyze {
     Invoke-KmtAnalyzeTask
@@ -91,3 +102,4 @@ task Uninstall {
 task UpdateSource {
     Invoke-KmtUpdateSourceTask
 }
+#>

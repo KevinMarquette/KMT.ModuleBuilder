@@ -1,7 +1,10 @@
 Describe 'Function Get-KmtBuildVariable' -tag build {
 
     BeforeAll {
-        Initialize-KmtModuleProject -ModuleName SampleModule -BuildRoot "$testdrive\SampleModule"
+        $path = "$testdrive\SampleModule"
+        MKDir $path -ErrorAction Ignore
+        Copy-Item "$PSScriptRoot\Data\SampleModule\module.kmt.json" -Destination $path
+        Initialize-KmtModuleProject -Path $Path
         $data = Get-KmtBuildVariable
     }
 

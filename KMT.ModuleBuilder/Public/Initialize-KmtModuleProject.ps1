@@ -14,30 +14,32 @@ function Initialize-KmtModuleProject
     param(
         [string]
         # Root folder of the project
-        $BuildRoot = (Get-Location),
-
-        # Name of the module
-        $ModuleName = 'None'
+        $Path = (Get-Location)
     )
 
     end
     {
         try
         {
+            $spec = Get-KmtSpecification -Path $Path
+            $moduleName = $spec.moduleName
+            $buildRoot = Split-Path -Path $spec.specificationPath
+            $folders = $spec.folders
+
             Write-Verbose "Initializing build variables"
-            $output = Join-Path -Path $BuildRoot -ChildPath 'Output'
-            $destination = Join-Path -Path $Output -ChildPath $ModuleName
+            $output = Join-Path -Path $buildRoot -ChildPath 'Output'
+            $destination = Join-Path -Path $Output -ChildPath $moduleName
             $script:buildInit = @{
-                ModuleName = $ModuleName
-                BuildRoot = $BuildRoot
-                DocsPath = Join-Path -Path $BuildRoot -ChildPath 'Docs'
-                Output = $output
-                Source = Join-Path -Path $BuildRoot -ChildPath $ModuleName
-                Destination = $destination
-                ManifestPath = Join-Path -Path $destination -ChildPath "$ModuleName.psd1"
-                ModulePath = Join-Path -Path $destination -ChildPath "$ModuleName.psm1"
-                Folders = 'Classes', 'Includes', 'Internal', 'Private', 'Public', 'Resources'
-                TestFile = Join-Path -Path $output -ChildPath "TestResults_PS${PSVersion}_$TimeStamp.xml"
+                ModuleName   = $moduleName
+                BuildRoot    = $buildRoot
+                DocsPath     = Join-Path -Path $buildRoot -ChildPath 'Docs'
+                Output       = $output
+                Source       = Join-Path -Path $buildRoot -ChildPath $moduleName
+                Destination  = $destination
+                ManifestPath = Join-Path -Path $destination -ChildPath "$moduleName.psd1"
+                ModulePath   = Join-Path -Path $destination -ChildPath "$moduleName.psm1"
+                Folders      = $folders
+                TestFile     = Join-Path -Path $output -ChildPath "TestResults_PS${PSVersion}_$TimeStamp.xml"
                 PSRepository = 'PSGallery'
             }
         }

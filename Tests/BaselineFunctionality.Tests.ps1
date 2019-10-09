@@ -5,7 +5,9 @@ Describe 'Baseline Functionality' -tag baseline,build {
         $destinationFolder = "TestDrive:/SampleModule/Output/SampleModule"
         Copy-Item $PSScriptRoot/Data/SampleModule TestDrive: -Recurse
         Push-Location "TestDrive:/SampleModule"
-        Invoke-Build Clean,Default
+        #Invoke-KmtCleanTask
+        Build-KmtModule -verbose
+        #Invoke-Build Clean,Default
     }
 
     $createdItems = @(

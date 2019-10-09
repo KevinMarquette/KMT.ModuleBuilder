@@ -24,6 +24,15 @@ function Build-KmtModule
 
     try
     {
+        $Script:ModuleName = Get-ChildItem .\*\*.psm1 | Select-object -ExpandProperty BaseName
+        $Script:CodeCoveragePercent = 0.0 # 0 to 1
+
+        Initialize-KmtModuleProject -Path "$testdrive\SampleModule"
+        $init = Get-KmtBuildVariable
+        foreach($key in $init.Keys)
+        {
+            Write-Verbose "  $key [$($init[$key])]" -Verbose
+        }
         #Build
         #Copy
         Invoke-KmtCopyTask

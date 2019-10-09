@@ -13,7 +13,7 @@ Initializes several project values used by other functions
 ## SYNTAX
 
 ```
-Initialize-KmtModuleProject [[-BuildRoot] <String>] [[-ModuleName] <Object>] [<CommonParameters>]
+Initialize-KmtModuleProject [[-Path] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -28,7 +28,7 @@ Initialize-KmtModuleProject -Path $Path
 
 ## PARAMETERS
 
-### -BuildRoot
+### -Path
 Root folder of the project
 
 ```yaml
@@ -39,21 +39,6 @@ Aliases:
 Required: False
 Position: 1
 Default value: (Get-Location)
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ModuleName
-Name of the module
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

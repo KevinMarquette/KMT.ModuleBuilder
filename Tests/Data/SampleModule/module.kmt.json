@@ -1,0 +1,17 @@
+{
+  "moduleName": "SampleModule",
+  "modulePath": "./SampleModule",
+  "folders": [
+    "Classes",
+    "Includes",
+    "Internal",
+    "Private",
+    "Public",
+    "Resources"
+  ],
+  "outputFolder": "Output",
+  "codeCoveragePercent": 0.0,
+  "pesterTags": [
+    "Build"
+  ]
+}
