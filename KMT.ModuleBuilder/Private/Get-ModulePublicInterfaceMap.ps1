@@ -5,7 +5,7 @@ function Get-ModulePublicInterfaceMap
     Imports a module and build a map of the public interface that is easy to compareS
     #>
     param($Path)
-    $module = Import-KmtModule -Path $Path -PassThru
+    $module = Import-KmtModule -Path $Path -PassThru -Verbose:$false
     $exportedCommands = @(
         $module.ExportedFunctions.values
         $module.ExportedCmdlets.values

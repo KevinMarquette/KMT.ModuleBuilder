@@ -34,28 +34,27 @@ function Build-KmtModule
             Write-Verbose "  $key [$($init[$key])]" -Verbose
         }
         #Build
-        #Copy
+        Write-Verbose 'Copy'
         Invoke-KmtCopyTask
-        #Compile
+        Write-Verbose 'Compile'
         Invoke-KmtDotNetCompileTask
-        #BuildModule
+        Write-Verbose 'BuildModule'
         Invoke-KmtBuildModuleTask
-        #Buildmanifest
+        Write-Verbose 'BuildManifest'
         Invoke-KmtBuildManifestTask
-        #SetVersion
+        Write-Verbose 'SetVersion'
         Invoke-KmtSemVerTask
-        #Helpify
-        #GenerateMarkdown
+        Write-Verbose 'GenerateMarkdown'
         Invoke-KmtGenerateMarkdown
-        #GenerateHelp
+        Write-Verbose 'GenerateHelp'
         Invoke-KmtGenerateHelpTask
-        #Test
-        #ImportModule
+        Write-Verbose 'ImportModule'
         Invoke-KmtImportBuiltModuleTask
-        #Pester
+        Write-Verbose 'Analyze'
         Invoke-KmtAnalyzeTask
+        Write-Verbose 'Pester'
         Invoke-KmtPesterTask
-        #UpdateSource
+        Write-Verbose 'UpdateSource'
         Invoke-KmtUpdateSourceTask
 
     }

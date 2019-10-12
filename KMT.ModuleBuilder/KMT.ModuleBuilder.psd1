@@ -69,7 +69,7 @@ Copyright = '(c) Kevin Marquette. All rights reserved.'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Build-KmtModule','Get-KmtBuildVariable','Import-KmtModule','Initialize-KmtModuleProject','Invoke-KmtAnalyzeTask','Invoke-KmtBuildManifestTask','Invoke-KmtBuildModuleTask','Invoke-KmtCleanTask','Invoke-KmtCopyTask','Invoke-KmtDotNetCompileTask','Invoke-KmtGenerateHelpTask','Invoke-KmtGenerateMarkdown','Invoke-KmtImportBuiltModuleTask','Invoke-KmtImportDevModuleTask','Invoke-KmtInstallModule','Invoke-KmtPesterTask','Invoke-KmtPublishModuleTask','Invoke-KmtPublishVersionTask','Invoke-KmtSemVerTask','Invoke-KmtUpdateSourceTask','Invoke-KtmUninstallModule')
+FunctionsToExport = @('Build-KmtModule','Get-KmtBuildVariable','Import-KmtModule','Initialize-KmtModuleProject')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
