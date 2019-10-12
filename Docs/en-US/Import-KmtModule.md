@@ -8,7 +8,7 @@ schema: 2.0.0
 # Import-KmtModule
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Unloads existing module before importing from a path
 
 ## SYNTAX
 
@@ -21,12 +21,10 @@ Import-KmtModule [[-path] <String>] [-PassThru] [<CommonParameters>]
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Import-KmtModule -Path $Path
+```
 
 ## PARAMETERS
 
@@ -40,7 +38,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -65,11 +63,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
