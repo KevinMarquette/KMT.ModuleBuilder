@@ -30,7 +30,7 @@ CompanyName = 'Kevin Marquette'
 Copyright = '(c) Kevin Marquette. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'Module building tools'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
