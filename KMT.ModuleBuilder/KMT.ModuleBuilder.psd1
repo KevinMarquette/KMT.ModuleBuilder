@@ -12,7 +12,7 @@
 RootModule = 'KMT.ModuleBuilder.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.1'
+ModuleVersion = '0.1.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,7 @@ Description = 'Module building tools'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Build-KmtModule','Get-KmtBuildVariable','Import-KmtModule','Initialize-KmtModuleProject')
+FunctionsToExport = @('Build-KmtModule','Import-KmtModule','Reset-KtmModule')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -78,7 +78,7 @@ CmdletsToExport = @()
 VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = @()
+AliasesToExport = @('Clean-KtmModule')
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()

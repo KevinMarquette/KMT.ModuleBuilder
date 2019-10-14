@@ -48,7 +48,7 @@ function Invoke-KmtSemVerTask
                 $versionFileData = Get-Content $versionFile -raw
                 if ($versionFileData -eq $versionStamp)
                 {
-                    continue
+                    return
                 }
             }
 

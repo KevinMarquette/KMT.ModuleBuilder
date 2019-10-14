@@ -10,10 +10,9 @@ function Invoke-KmtCleanTask
         .Notes
 
     #>
-    [cmdletbinding()]
-    param(
-
-    )
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSShouldProcess', '')]
+    [cmdletbinding(SupportsShouldProcess)]
+    param()
 
     try
     {

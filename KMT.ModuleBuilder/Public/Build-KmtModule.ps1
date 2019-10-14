@@ -24,10 +24,10 @@ function Build-KmtModule
 
     try
     {
-        $Script:ModuleName = Get-ChildItem .\*\*.psm1 | Select-object -ExpandProperty BaseName
-        $Script:CodeCoveragePercent = 0.0 # 0 to 1
+        #$Script:ModuleName = Get-ChildItem .\*\*.psm1 | Select-object -ExpandProperty BaseName
+        #$Script:CodeCoveragePercent = 0.0 # 0 to 1
 
-        Initialize-KmtModuleProject -Path "$testdrive\SampleModule"
+        Initialize-KmtModuleProject -Path $Path
         $init = Get-KmtBuildVariable
         foreach($key in $init.Keys)
         {
@@ -56,12 +56,11 @@ function Build-KmtModule
         Invoke-KmtPesterTask
         Write-Verbose 'UpdateSource'
         Invoke-KmtUpdateSourceTask
-
     }
     catch
     {
-        Write-Error -ErrorRecord $PSItem -ErrorAction Stop
-        #$PSCmdlet.ThrowTerminatingError( $PSItem )
+        #Write-Error -ErrorRecord $PSItem -ErrorAction Stop
+        $PSCmdlet.ThrowTerminatingError( $PSItem )
     }
 
 }
