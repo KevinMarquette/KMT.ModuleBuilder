@@ -16,7 +16,6 @@ function Invoke-KmtCleanTask
 
     try
     {
-        Initialize-KmtModuleProject -Path "$testdrive\SampleModule"
         $Output = (Get-KmtBuildVariable).Output
         if (Test-Path $Output)
         {

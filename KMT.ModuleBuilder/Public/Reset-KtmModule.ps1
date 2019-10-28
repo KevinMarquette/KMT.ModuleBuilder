@@ -33,7 +33,6 @@ function Reset-KtmModule
                 Initialize-KmtModuleProject -Path $Folder
                 Invoke-KmtCleanTask
             }
-
         }
         catch
         {
