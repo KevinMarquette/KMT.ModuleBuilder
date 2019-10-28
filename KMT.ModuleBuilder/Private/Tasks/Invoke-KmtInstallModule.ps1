@@ -53,5 +53,4 @@ function Invoke-KmtInstallModule
     {
         $PSCmdlet.ThrowTerminatingError( $PSItem )
     }
-
 }
