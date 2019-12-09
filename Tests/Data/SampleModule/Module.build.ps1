@@ -14,7 +14,7 @@ foreach($key in $init.Keys)
 {
     Write-Verbose "  $key [$($init[$key])]" -Verbose
 }
-Build-KmtModule
+Build-KmtModuleProject
 
 
 

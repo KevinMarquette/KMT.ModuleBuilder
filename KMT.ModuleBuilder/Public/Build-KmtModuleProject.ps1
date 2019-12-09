@@ -1,11 +1,11 @@
-function Build-KmtModule
+function Build-KmtModuleProject
 {
     <#
         .Synopsis
         Executes all the build actions for a module
 
         .Example
-        Build-KmtModule -Path $Path
+        Build-KmtModuleProject -Path $Path
 
         .Notes
 

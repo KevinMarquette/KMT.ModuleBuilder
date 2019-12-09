@@ -6,7 +6,7 @@ Describe 'Baseline Functionality' -tag baseline,build {
         Copy-Item $PSScriptRoot/Data/SampleModule TestDrive: -Recurse
         Push-Location "TestDrive:/SampleModule"
         Reset-KtmModule -Verbose
-        Build-KmtModule -verbose
+        Build-KmtModuleProject -verbose
         #Invoke-Build Clean,Default
     }
 

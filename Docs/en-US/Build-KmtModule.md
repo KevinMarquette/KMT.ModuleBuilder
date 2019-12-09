@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Build-KmtModule
+# Build-KmtModuleProject
 
 ## SYNOPSIS
 Executes all the build actions for a module
@@ -13,7 +13,7 @@ Executes all the build actions for a module
 ## SYNTAX
 
 ```
-Build-KmtModule [[-Path] <String>] [<CommonParameters>]
+Build-KmtModuleProject [[-Path] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,7 +23,7 @@ Build-KmtModule [[-Path] <String>] [<CommonParameters>]
 
 ### EXAMPLE 1
 ```
-Build-KmtModule -Path $Path
+Build-KmtModuleProject -Path $Path
 ```
 
 ## PARAMETERS

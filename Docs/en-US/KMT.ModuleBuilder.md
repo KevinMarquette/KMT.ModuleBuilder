@@ -11,7 +11,7 @@ Locale: en-US
 {{ Fill in the Description }}
 
 ## KMT.ModuleBuilder Cmdlets
-### [Build-KmtModule](Build-KmtModule.md)
+### [Build-KmtModuleProject](Build-KmtModuleProject.md)
 {{ Fill in the Description }}
 
 ### [Get-KmtBuildVariable](Get-KmtBuildVariable.md)
