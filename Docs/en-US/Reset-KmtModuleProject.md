@@ -5,14 +5,14 @@ online version:
 schema: 2.0.0
 ---
 
-# Reset-KtmModule
+# Reset-KmtModuleProject
 
 ## SYNOPSIS
 
 ## SYNTAX
 
 ```
-Reset-KtmModule [[-Path] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Reset-KmtModuleProject [[-Path] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,7 +22,7 @@ Reset-KtmModule [[-Path] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
 
 ### EXAMPLE 1
 ```
-Reset-KtmModule -Path $Path
+Reset-KmtModuleProject -Path $Path
 ```
 
 ## PARAMETERS
