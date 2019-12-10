@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Import-KmtModuleProject
+# Import-KmtModule
 
 ## SYNOPSIS
 Unloads existing module before importing from a path
@@ -13,7 +13,7 @@ Unloads existing module before importing from a path
 ## SYNTAX
 
 ```
-Import-KmtModuleProject [[-path] <String>] [-PassThru] [<CommonParameters>]
+Import-KmtModule [[-path] <String>] [-PassThru] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,7 +23,7 @@ Import-KmtModuleProject [[-path] <String>] [-PassThru] [<CommonParameters>]
 
 ### EXAMPLE 1
 ```
-Import-KmtModuleProject -Path $Path
+Import-KmtModule -Path $Path
 ```
 
 ## PARAMETERS

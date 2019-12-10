@@ -17,7 +17,7 @@ Locale: en-US
 ### [Get-KmtBuildVariable](Get-KmtBuildVariable.md)
 {{ Fill in the Description }}
 
-### [Import-KmtModuleProject](Import-KmtModuleProject.md)
+### [Import-KmtModule](Import-KmtModule.md)
 {{ Fill in the Description }}
 
 ### [Initialize-KmtModuleProject](Initialize-KmtModuleProject.md)

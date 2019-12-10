@@ -23,7 +23,6 @@ function Invoke-KmtInstallModule
         $Path
     )
 
-
     try
     {
         $manifestPath = (Get-KmtBuildVariable).ManifestPath

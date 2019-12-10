@@ -16,7 +16,7 @@ function Invoke-KmtImportBuiltModuleTask
     try
     {
         $path = (Get-KmtBuildVariable).ManifestPath
-        Import-KmtModuleProject -Path $path -Force
+        Import-KmtModule -Path $path -Force
     }
     catch
     {

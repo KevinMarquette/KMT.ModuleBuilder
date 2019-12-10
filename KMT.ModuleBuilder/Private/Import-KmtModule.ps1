@@ -1,11 +1,11 @@
-function Import-KmtModuleProject
+function Import-KmtModule
 {
     <#
         .SYNOPSIS
         Unloads existing module before importing from a path
 
         .Example
-        Import-KmtModuleProject -Path $Path
+        Import-KmtModule -Path $Path
     #>
     param(
         [string]$path,

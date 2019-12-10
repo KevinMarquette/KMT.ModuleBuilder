@@ -39,9 +39,4 @@ function Reset-KmtModuleProject
             $PSCmdlet.ThrowTerminatingError( $PSItem )
         }
     }
-
-    end
-    {
-
-    }
 }
