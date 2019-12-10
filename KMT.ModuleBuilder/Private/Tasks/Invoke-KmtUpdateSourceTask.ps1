@@ -11,9 +11,7 @@ function Invoke-KmtUpdateSourceTask
 
     #>
     [cmdletbinding()]
-    param(
-
-    )
+    param()
 
     end
     {

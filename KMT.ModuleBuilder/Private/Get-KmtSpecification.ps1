@@ -27,27 +27,27 @@ function Get-KmtSpecification
     {
         try
         {
-            $filter = @{filter = 'module.kmt.json'}
+            $filter = @{filter = 'module.kmt.json' }
 
             Write-Debug "Load from local folder [$path]"
             $specFile = Get-ChildItem $Path @filter
-            if(-not $specFile)
+            if (-not $specFile)
             {
                 Write-Debug 'Check all child folders'
                 $specFile = Get-ChildItem $Path @filter -Recurse |
-                    Select -First 1
+                    select -First 1
             }
 
-            if(-not $specFile)
+            if (-not $specFile)
             {
-                while($Path = Split-Path $Path)
+                while ($Path = Split-Path $Path)
                 {
                     Write-Debug "Walk parent folders [$Path]"
                     $specFile = Get-ChildItem $Path @filter
                 }
             }
 
-            if(-not $specFile)
+            if (-not $specFile)
             {
                 Write-Debug 'Specification was not found'
                 throw [System.IO.FileNotFoundException]::new(
@@ -63,8 +63,8 @@ function Get-KmtSpecification
             # attach spec path so we can find the root of the project
             $member = @{
                 MemberType = 'NoteProperty'
-                Name = 'specificationPath'
-                Value = $specFile.FullName
+                Name       = 'specificationPath'
+                Value      = $specFile.FullName
             }
             $specification | Add-Member @member
 

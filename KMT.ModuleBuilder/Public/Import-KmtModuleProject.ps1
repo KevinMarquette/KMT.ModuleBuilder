@@ -28,10 +28,10 @@ function Import-KmtModuleProject
     {
         try
         {
-            foreach($folder in $Path)
+            foreach ($folder in $Path)
             {
                 Initialize-KmtModuleProject -Path $Folder
-                if($DevelopmentVersion)
+                if ($DevelopmentVersion)
                 {
                     Invoke-KmtImportDevModuleTask
                 }

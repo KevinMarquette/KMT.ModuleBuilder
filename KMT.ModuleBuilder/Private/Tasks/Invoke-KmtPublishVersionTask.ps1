@@ -12,10 +12,7 @@ function Invoke-KmtPublishVersionTask
     #>
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
     [cmdletbinding()]
-    param(
-
-    )
-
+    param()
 
     try
     {
@@ -30,5 +27,4 @@ function Invoke-KmtPublishVersionTask
     {
         $PSCmdlet.ThrowTerminatingError( $PSItem )
     }
-
 }

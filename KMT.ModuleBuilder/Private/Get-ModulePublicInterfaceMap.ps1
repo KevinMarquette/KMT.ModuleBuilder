@@ -12,11 +12,11 @@ function Get-ModulePublicInterfaceMap
         $module.ExportedAliases.values
     )
 
-    foreach($command in $exportedCommands)
+    foreach ($command in $exportedCommands)
     {
         foreach ($parameter in $command.Parameters.Keys)
         {
-            if($false -eq $command.Parameters[$parameter].IsDynamic)
+            if ($false -eq $command.Parameters[$parameter].IsDynamic)
             {
                 '{0}:{1}' -f $command.Name, $command.Parameters[$parameter].Name
                 foreach ($alias in $command.Parameters[$parameter].Aliases)

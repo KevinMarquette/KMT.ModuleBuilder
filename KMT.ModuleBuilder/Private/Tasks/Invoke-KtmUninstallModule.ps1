@@ -50,7 +50,7 @@ function Invoke-KtmUninstallModule
             Get-ChildItem -Path $path -File -Recurse |
                 Remove-Item -Force | ForEach-Object 'FullName'
 
-                Write-Verbose 'Removing folders... (This may fail if any DLLs are in use.)'
+            Write-Verbose 'Removing folders... (This may fail if any DLLs are in use.)'
             Remove-Item $path -Recurse -Force
         }
     }

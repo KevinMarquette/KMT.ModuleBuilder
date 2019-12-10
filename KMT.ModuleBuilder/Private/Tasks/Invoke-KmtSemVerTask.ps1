@@ -12,14 +12,7 @@ function Invoke-KmtSemVerTask
 
     #>
     [cmdletbinding(SupportsShouldProcess)]
-    param(
-
-        #$SourcePath,
-        #[parameter(Mandatory)]
-        #$ManifestPath,
-        #$ModuleName,
-        #$Repository = 'PSGallery'
-    )
+    param()
 
     $ManifestPath = (Get-KmtBuildVariable).ManifestPath
     $ModuleName = (Get-KmtBuildVariable).ModuleName
@@ -55,7 +48,7 @@ function Invoke-KmtSemVerTask
             Write-Verbose "Checking for published version"
             $publishedModule = Find-Module -Name $ModuleName -ErrorAction 'Ignore' |
                 Sort-Object -Property { [version]$_.Version } -Descending |
-                Select -First 1
+                select -First 1
 
             if ($null -ne $publishedModule)
             {

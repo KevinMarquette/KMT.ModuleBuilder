@@ -31,26 +31,26 @@ function Move-Statement
 
     param(
         [Parameter(Mandatory,
-                   Position = 0,
-                   ValueFromPipeline,
-                   ValueFromPipelineByPropertyName)]
+            Position = 0,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]
-        [ValidateScript({ Test-Path -Path $PSItem })]
+        [ValidateScript( { Test-Path -Path $PSItem })]
         [string] $Path,
 
         [Parameter(Position = 1,
-                   ValueFromPipelineByPropertyName)]
+            ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]
         [ValidateSet('Comment', 'Keyword')]
         [string[]] $Type = ('Comment', 'Keyword'),
 
         [Parameter(Position = 2,
-                   ValueFromPipelineByPropertyName)]
+            ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]
         [string[]] $Token = ('#Requires', 'using'),
 
         [Parameter(Position = 3,
-                   ValueFromPipelineByPropertyName)]
+            ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]
         [int] $Index = 0
     )
@@ -73,12 +73,13 @@ function Move-Statement
 
             Write-Verbose -Message 'Matching tokens...'
             Write-Verbose -Message "Type = [$Type]; Token = [$Token]"
-            $keywords = $tokens.Where({
-                $PSItem.Type -in $Type -and
-                $PSItem.Content -imatch "^(?:$match)"
-            })
+            $keywords = $tokens.Where( {
+                    $PSItem.Type -in $Type -and
+                    $PSItem.Content -imatch "^(?:$match)"
+                })
 
-            if (-not $keywords) {
+            if (-not $keywords)
+            {
                 Write-Verbose -Message 'No matching tokens found! Returning...'
                 return
             }
@@ -90,13 +91,13 @@ function Move-Statement
 
                 Write-Verbose -Message "Moving [$($content[$line])] to Index [$Index]..."
                 $null = $statements.Add($content[$line]),
-                        $content.RemoveAt($line)
+                $content.RemoveAt($line)
                 $offset++
             }
 
-            [string[]] $comments, [string[]] $statements = $statements.Where({
-                $PSItem -match '^#'
-            }, 'Split')
+            [string[]] $comments, [string[]] $statements = $statements.Where( {
+                    $PSItem -match '^#'
+                }, 'Split')
 
             foreach ($item in ($statements, $comments))
             {

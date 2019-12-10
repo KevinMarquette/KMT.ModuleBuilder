@@ -10,10 +10,7 @@ function Invoke-KmtPublishModuleTask
 
     #>
     [cmdletbinding()]
-    param(
-
-    )
-
+    param()
 
     try
     {

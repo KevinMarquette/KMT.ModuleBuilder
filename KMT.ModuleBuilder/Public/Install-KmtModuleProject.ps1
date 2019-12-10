@@ -28,12 +28,12 @@ function Install-KmtModuleProject
     {
         try
         {
-            foreach($folder in $Path)
+            foreach ($folder in $Path)
             {
                 Initialize-KmtModuleProject -Path $Folder
                 $moduleName = (Get-KmtBuildVariable).ModuleName
 
-                if($DevelopmentVersion)
+                if ($DevelopmentVersion)
                 {
                     $moduleFolder = (Get-KmtBuildVariable).Source
                     $manifestPath = (Get-KmtBuildVariable).ModulePath

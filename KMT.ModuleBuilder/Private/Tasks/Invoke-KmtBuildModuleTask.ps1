@@ -78,7 +78,7 @@ function Invoke-KmtBuildModuleTask
         }
 
         Write-Verbose "Creating Module [$ModulePath]..."
-        $null = New-Item -Path (Split-path $ModulePath) -ItemType Directory -ErrorAction SilentlyContinue -Force
+        $null = New-Item -Path (Split-Path $ModulePath) -ItemType Directory -ErrorAction SilentlyContinue -Force
         Set-Content -Path  $ModulePath -Value $sb.ToString() -Encoding 'UTF8'
 
         Write-Verbose 'Moving "#Requires" statements and "using" directives...'

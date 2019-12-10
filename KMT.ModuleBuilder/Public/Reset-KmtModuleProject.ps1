@@ -28,7 +28,7 @@ function Reset-KmtModuleProject
     {
         try
         {
-            foreach($folder in $Path)
+            foreach ($folder in $Path)
             {
                 Initialize-KmtModuleProject -Path $Folder
                 Invoke-KmtCleanTask

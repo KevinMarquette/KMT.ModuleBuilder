@@ -31,11 +31,11 @@ function Import-KmtModule
 
         Write-Verbose "Importing Module [$name] from [$($file.fullname)]..."
         $splat = @{
-            Name = $file.fullname
-            Force = $true
+            Name     = $file.fullname
+            Force    = $true
             PassThru = $PassThru
-            Scope = 'Global'
-            Verbose = $false
+            Scope    = 'Global'
+            Verbose  = $false
         }
         Import-Module @splat
     }

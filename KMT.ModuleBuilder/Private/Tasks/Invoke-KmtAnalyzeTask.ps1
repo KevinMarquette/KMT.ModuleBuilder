@@ -18,13 +18,13 @@ function Invoke-KmtAnalyzeTask
         $BuildVariables = Get-KmtBuildVariable
 
         $scripts = Get-ChildItem -Path (Join-Path $PSModuleRoot 'Pester') |
-            Foreach-Object {@{
-                Path       = $_.FullName
-                Parameters = @{BuildVariables = $BuildVariables}
-            }}
+            ForEach-Object { @{
+                    Path       = $_.FullName
+                    Parameters = @{BuildVariables = $BuildVariables }
+                } }
 
         $pester = @{
-            Script = $scripts
+            Script   = $scripts
             PassThru = $true
             Show     = 'Failed', 'Fails', 'Summary'
         }

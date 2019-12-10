@@ -62,5 +62,4 @@ function Build-KmtModuleProject
         #Write-Error -ErrorRecord $PSItem -ErrorAction Stop
         $PSCmdlet.ThrowTerminatingError( $PSItem )
     }
-
 }
